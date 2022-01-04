@@ -12,7 +12,7 @@ namespace Turan.Shared.Data.Abstract
 	{
 		Task<T> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeEntities);
 		T Get(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeEntities);
-		Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeEntities);
+		Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includeEntities);
 		IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includeEntities);
 		Task<T> AddAsync(T entity);
 		T Add(T entity);

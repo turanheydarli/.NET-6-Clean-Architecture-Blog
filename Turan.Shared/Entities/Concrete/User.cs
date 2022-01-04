@@ -14,8 +14,8 @@ namespace Turan.Shared.Entities.Concrete
 		public string About { get; set; }
 		public string ImagePath { get; set; }
 		public string Email { get; set; }
-		public byte[]? PasswordSalt { get; set; }
-		public byte[]? PasswordHash { get; set; }
+		public byte[] PasswordSalt { get; set; }
+		public byte[] PasswordHash { get; set; }
 
 	}
 }

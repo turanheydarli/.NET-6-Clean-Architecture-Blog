@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Turan.Data\Turan.Data.csproj" />
+    <ProjectReference Include="..\Turan.Entities\Turan.Entities.csproj" />
+    <ProjectReference Include="..\Turan.Shared\Turan.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
