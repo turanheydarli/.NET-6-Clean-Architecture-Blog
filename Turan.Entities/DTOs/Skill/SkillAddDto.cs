@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Turan.Shared.Entities.Abstract;
 
-namespace Turan.Entities.DTOs.Skill
+namespace Turan.Entities.DTOs
 {
 	public class SkillAddDto : IDto
 	{

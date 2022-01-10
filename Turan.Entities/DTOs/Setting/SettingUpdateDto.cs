@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Turan.Shared.Entities.Abstract;
 
-namespace Turan.Entities.DTOs.Setting
+namespace Turan.Entities.DTOs
 {
 	public class SettingUpdateDto : IDto
 	{

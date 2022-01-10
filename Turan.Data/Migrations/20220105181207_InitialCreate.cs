@@ -15,6 +15,10 @@ namespace Turan.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ImagePath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ShortContent = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Content = table.Column<string>(type: "NVARCHAR(MAX)", nullable: false),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -168,8 +172,7 @@ namespace Turan.Data.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
                     ParentId = table.Column<int>(type: "int", nullable: true),
-                    ArticleId = table.Column<int>(type: "int", nullable: false),
-                    ArticleId1 = table.Column<int>(type: "int", nullable: true),
+                    ArticleId = table.Column<int>(type: "int", nullable: true),
                     CreatedTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -182,12 +185,6 @@ namespace Turan.Data.Migrations
                         name: "FK_Comments_Articles_ArticleId",
                         column: x => x.ArticleId,
                         principalTable: "Articles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Comments_Articles_ArticleId1",
-                        column: x => x.ArticleId1,
-                        principalTable: "Articles",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Comments_Comments_ParentId",
@@ -195,6 +192,11 @@ namespace Turan.Data.Migrations
                         principalTable: "Comments",
                         principalColumn: "Id");
                 });
+
+            migrationBuilder.InsertData(
+                table: "Abouts",
+                columns: new[] { "Id", "Content", "CreatedTime", "FirstName", "ImagePath", "IsActive", "IsDeleted", "LastName", "ModifiedTime", "ShortContent" },
+                values: new object[] { 1, "null", new DateTime(2022, 1, 5, 22, 12, 7, 96, DateTimeKind.Local).AddTicks(2488), "null", "null", true, false, "null", null, "null" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Articles_CategoryId",
@@ -205,11 +207,6 @@ namespace Turan.Data.Migrations
                 name: "IX_Comments_ArticleId",
                 table: "Comments",
                 column: "ArticleId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Comments_ArticleId1",
-                table: "Comments",
-                column: "ArticleId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_ParentId",

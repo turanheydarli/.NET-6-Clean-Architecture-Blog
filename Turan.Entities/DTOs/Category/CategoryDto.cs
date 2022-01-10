@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Turan.Entities.Concrete;
 using Turan.Shared.Entities.Abstract;
 
-namespace Turan.Entities.DTOs.Category
+namespace Turan.Entities.DTOs
 {
 	public class CategoryDto : IDto
 	{

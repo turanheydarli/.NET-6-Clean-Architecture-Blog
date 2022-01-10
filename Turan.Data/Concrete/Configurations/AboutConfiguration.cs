@@ -14,6 +14,15 @@ namespace Turan.Data.Concrete.Configurations
 		public override void Configure(EntityTypeBuilder<About> builder)
 		{
 			builder.Property(a => a.Content).IsRequired().HasColumnType("NVARCHAR(MAX)");
+			builder.HasData(new About
+			{
+				Id = 1,
+				Content = "null",
+				FirstName = "null",
+				ImagePath = "null",
+				LastName = "null",
+				ShortContent = "null",
+			});
 
 			base.Configure(builder);	
 		}

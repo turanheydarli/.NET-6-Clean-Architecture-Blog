@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Turan.Entities.DTOs.About;
+using Turan.Entities.DTOs;
 using Turan.Shared.Utilities.Results;
 
 namespace Turan.Service.Abstract

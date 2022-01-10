@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Turan.Data.Abstract;
 using Turan.Entities.Concrete;
-using Turan.Entities.DTOs.About;
+using Turan.Entities.DTOs;
 using Turan.Service.Abstract;
 using Turan.Shared.Utilities.Results;
 
 namespace Turan.Service.Concrete
 {
-	internal class AboutManager : IAboutService
+	public class AboutManager : IAboutService
 	{
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
@@ -26,6 +26,8 @@ namespace Turan.Service.Concrete
 		public async Task<IDataResult<AboutDto>> AddAsync(AboutAddDto aboutAddDto)
 		{
 			About aboutToAdd = await _unitOfWork.About.AddAsync(_mapper.Map<About>(aboutAddDto));
+			await _unitOfWork.SaveAsync();
+
 			return new SuccessDataResult<AboutDto>(_mapper.Map<AboutDto>(aboutToAdd));
 		}
 
@@ -44,6 +46,7 @@ namespace Turan.Service.Concrete
 		public async Task<IDataResult<AboutDto>> UpdateAsync(AboutUpdateDto aboutUpdateDto)
 		{
 			About aboutToUpdate = await _unitOfWork.About.UpdateAsync(_mapper.Map<About>(aboutUpdateDto));
+			await _unitOfWork.SaveAsync();
 
 			return new SuccessDataResult<AboutDto>(_mapper.Map<AboutDto>(aboutToUpdate));
 		}

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Turan.Entities.Concrete;
 using Turan.Shared.Entities.Abstract;
 
-namespace Turan.Entities.DTOs.Article
+namespace Turan.Entities.DTOs
 {
 	public class ArticleAddDto : IDto
 	{

@@ -21,8 +21,6 @@ namespace Turan.Data.Concrete.Configurations
 			builder.Property(a => a.ShortContent).HasMaxLength(MaxLengthSize.Description.ToInt()).IsRequired();
 			builder.Property(a => a.ThumbnailPath).HasMaxLength(MaxLengthSize.Path.ToInt()).IsRequired();
 
-			builder.HasOne<Category>(x => x.Category).WithMany(x => x.Articles).HasForeignKey(x => x.CategoryId);
-
 			base.Configure(builder);
 		}
 	}

@@ -18,8 +18,6 @@ namespace Turan.Data.Concrete.Configurations
 			builder.Property(c => c.Text).IsRequired().HasMaxLength(MaxLengthSize.Description.ToInt());
 			builder.Property(c => c.FullName).IsRequired().HasMaxLength(MaxLengthSize.Name.ToInt());
 
-			builder.HasOne<Article>().WithMany(x => x.Comments).HasForeignKey(x => x.ArticleId);
-
 			base.Configure(builder);
 		}
 	}

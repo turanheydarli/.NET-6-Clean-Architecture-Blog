@@ -1,7 +1,12 @@
+using Turan.Service;
+
 var builder = WebApplication.CreateBuilder(args);
+var startup = new Startup();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+startup.ConfigureServices(builder.Services);
 
 var app = builder.Build();
 

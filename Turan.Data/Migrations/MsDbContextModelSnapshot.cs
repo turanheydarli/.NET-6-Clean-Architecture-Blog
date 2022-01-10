@@ -37,18 +37,44 @@ namespace Turan.Data.Migrations
                     b.Property<DateTime>("CreatedTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime?>("ModifiedTime")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ShortContent")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Abouts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "null",
+                            CreatedTime = new DateTime(2022, 1, 5, 22, 12, 7, 96, DateTimeKind.Local).AddTicks(2488),
+                            FirstName = "null",
+                            ImagePath = "null",
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "null",
+                            ShortContent = "null"
+                        });
                 });
 
             modelBuilder.Entity("Turan.Entities.Concrete.Article", b =>
@@ -158,10 +184,7 @@ namespace Turan.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ArticleId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ArticleId1")
+                    b.Property<int?>("ArticleId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedTime")
@@ -196,8 +219,6 @@ namespace Turan.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ArticleId");
-
-                    b.HasIndex("ArticleId1");
 
                     b.HasIndex("ParentId");
 
@@ -375,15 +396,9 @@ namespace Turan.Data.Migrations
 
             modelBuilder.Entity("Turan.Entities.Concrete.Comment", b =>
                 {
-                    b.HasOne("Turan.Entities.Concrete.Article", null)
-                        .WithMany("Comments")
-                        .HasForeignKey("ArticleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Turan.Entities.Concrete.Article", "Article")
-                        .WithMany()
-                        .HasForeignKey("ArticleId1");
+                        .WithMany("Comments")
+                        .HasForeignKey("ArticleId");
 
                     b.HasOne("Turan.Entities.Concrete.Comment", "Parent")
                         .WithMany()
