@@ -1,12 +1,19 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Turan.Data.Concrete.EntityFramework.Contexts;
 using Turan.Service;
+using Turan.Service.Utilities.Extensions;
+using Turan.Shared.Entities.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
-var startup = new Startup();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-startup.ConfigureServices(builder.Services);
+builder.Services.ConfigureServices(builder.Configuration);
+
+
 
 var app = builder.Build();
 
@@ -23,10 +30,17 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
+	name: "areas",
+	pattern: "{area:exists}/{controller=dashboard}/{action=index}");
+
+app.MapControllerRoute(
 	name: "default",
-	pattern: "{controller=Home}/{action=Index}/{id?}");
+	pattern: "{controller=Home}/{action=Index}");
+
 
 app.Run();

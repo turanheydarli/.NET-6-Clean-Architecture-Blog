@@ -10,9 +10,9 @@ using Turan.Shared.Data.Concrete.EntityFramework;
 
 namespace Turan.Data.Concrete.EntityFramework
 {
-	public class EfSocialRepository : EfEntityRepositoryBase<Social, MsDbContext>, ISocialRepository
+	public class EfSocialRepository : EfEntityRepositoryBase<Social, ProjectDbContext>, ISocialRepository
 	{
-		public EfSocialRepository(MsDbContext context) : base(context)
+		public EfSocialRepository(ProjectDbContext context) : base(context)
 		{
 		}
 	}

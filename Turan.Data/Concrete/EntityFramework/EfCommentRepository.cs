@@ -10,9 +10,9 @@ using Turan.Shared.Data.Concrete.EntityFramework;
 
 namespace Turan.Data.Concrete.EntityFramework
 {
-	internal class EfCommentRepository : EfEntityRepositoryBase<Comment, MsDbContext>, ICommentRepository
+	internal class EfCommentRepository : EfEntityRepositoryBase<Comment, ProjectDbContext>, ICommentRepository
 	{
-		public EfCommentRepository(MsDbContext context) : base(context)
+		public EfCommentRepository(ProjectDbContext context) : base(context)
 		{
 		}
 	}

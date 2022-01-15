@@ -10,9 +10,9 @@ using Turan.Shared.Data.Concrete.EntityFramework;
 
 namespace Turan.Data.Concrete.EntityFramework
 {
-	public class EfSkillRepository : EfEntityRepositoryBase<Skill, MsDbContext>, ISkillRepository
+	public class EfSkillRepository : EfEntityRepositoryBase<Skill, ProjectDbContext>, ISkillRepository
 	{
-		public EfSkillRepository(MsDbContext context) : base(context)
+		public EfSkillRepository(ProjectDbContext context) : base(context)
 		{
 		}
 	}

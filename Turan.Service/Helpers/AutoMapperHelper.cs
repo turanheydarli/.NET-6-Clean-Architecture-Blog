@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Turan.Entities.Concrete;
 using Turan.Entities.DTOs;
+using Turan.Shared.Entities.Concrete;
+using Turan.Shared.Entities.DTOs.UserDTOs;
 
 namespace Turan.Service.Helpers
 {
@@ -44,6 +46,9 @@ namespace Turan.Service.Helpers
             CreateMap<Setting, SettingUpdateDto>().ReverseMap();
             CreateMap<Setting, SettingAddDto>().ReverseMap();
             CreateMap<Setting, SettingDto>().ReverseMap();
+
+            CreateMap<User, UserRegisterDto>().ReverseMap();
+            CreateMap<User, UserLoginDto>().ReverseMap();
         }
     }
 }

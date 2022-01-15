@@ -6,9 +6,9 @@ namespace Turan.Data.Concrete
 {
 	public class UnitOfWork : IUnitOfWork
 	{
-		private readonly MsDbContext _context;
+		private readonly ProjectDbContext _context;
 
-		public UnitOfWork(MsDbContext context)
+		public UnitOfWork(ProjectDbContext context)
 		{
 			_context = context;
 		}

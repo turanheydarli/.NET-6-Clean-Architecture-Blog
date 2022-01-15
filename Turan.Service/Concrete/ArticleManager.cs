@@ -41,7 +41,8 @@ namespace Turan.Service.Concrete
 		public async Task<IDataResult<ICollection<ArticleDto>>> GetAllAsync()
 		{
 			return new SuccessDataResult<ICollection<ArticleDto>>(
-				_mapper.Map<ICollection<ArticleDto>>(await _unitOfWork.Article.GetAllAsync()));
+				_mapper.Map<ICollection<ArticleDto>>(await 
+				_unitOfWork.Article.GetAllAsync(x => !x.IsDeleted, a => a.Category, a => a.Comments)));
 		}
 
 		public async Task<IDataResult<ArticleDto>> GetByIdAsync(int id)

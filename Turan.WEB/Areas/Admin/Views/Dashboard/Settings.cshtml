@@ -1,0 +1,73 @@
+﻿@model Turan.Entities.DTOs.SettingDto
+
+<div class="page-body">
+    <div class="container-fluid">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-6">
+                    <h3>Default</h3>
+                </div>
+                <div class="col-6">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-controller="dashboard"><i data-feather="home"></i></a></li>
+                        <li class="breadcrumb-item">Dashboard</li>
+                        <li class="breadcrumb-item active">Settings</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid starts-->
+    <div class="container-fluid">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Site Settings</h5>
+                        </div>
+                        <form class="form theme-form">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" asp-for="@Model.Title"></label>
+                                            <input class="form-control form-control-lg" asp-for="@Model.Title">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" asp-for="@Model.Description"></label>
+                                            <textarea class="form-control form-control-lg"
+                                                asp-for="@Model.Description"><</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <label class="form-label" asp-for="@Model.Keywords"></label>
+                                            <input class="form-control form-control-lg" asp-for="@Model.Keywords">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer text-end">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                                <input class="btn btn-light" type="reset" value="Cancel">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+</div>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <partial name="Partials/_HeadPartial">
+</head>
+
+<body onload="startTime()">
+
+  <div class="tap-top"><i data-feather="chevrons-up"></i></div>
+
+  <div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <partial name="Partials/_HeaderPartial">
+      <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+        <div class="sidebar-wrapper">
+          <div>
+            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light"
+                  src="~/admin/assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark"
+                  src="~/admin/assets/images/logo/logo_dark.png" alt=""></a>
+              <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+              <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+            </div>
+            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
+                  src="~/admin/assets/images/logo/logo-icon.png" alt=""></a></div>
+            <partial name="Partials/_NavigationPartial">
+          </div>
+        </div>
+        
+            @RenderBody()
+          
+        <partial name="Partials/_FooterPartial">
+      </div>
+  </div>
+  <partial name="Partials/_ScriptsPartial">
+    @RenderSection("Scripts", false)
+</body>
+
+</html>

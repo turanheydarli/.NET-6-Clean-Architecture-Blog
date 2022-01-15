@@ -10,9 +10,9 @@ using Turan.Shared.Data.Concrete.EntityFramework;
 
 namespace Turan.Data.Concrete.EntityFramework
 {
-	public class EfAboutRepository : EfEntityRepositoryBase<About, MsDbContext>, IAboutRepository
+	public class EfAboutRepository : EfEntityRepositoryBase<About, ProjectDbContext>, IAboutRepository
 	{
-		public EfAboutRepository(MsDbContext context) : base(context)
+		public EfAboutRepository(ProjectDbContext context) : base(context)
 		{
 		}
 
